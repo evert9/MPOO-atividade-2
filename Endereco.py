@@ -59,3 +59,6 @@ class Endereco:
     
     def set_cep(self, cep):
         self.__cep = cep
+
+    def __str__(self):
+        return f"Número: {self.__numero}, Bairro: {self.__bairro}, Cidade: {self.__cidade}, Estado: {self.__estado}"

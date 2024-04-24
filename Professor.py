@@ -1,8 +1,8 @@
-class Professor:
-    def __init__(self, nome,  email, endereco):
-        self.nome = nome
-        self.email = email
-        self.__endereco = endereco
+from Servidor import Servidor
+
+class Professor(Servidor):
+    def __init__(self, nome, endereco,  email):
+        super().__init__(nome, endereco, email)
         self.disciplinas = []
         self.cursos = []
 
@@ -19,17 +19,15 @@ class Professor:
             disciplinasStr = f"{d.nome}, "
         return disciplinasStr[:-2]
         
-    def mostrarCusos(self):
+    def mostrarCursos(self):
         cursoStr = ""
         for c in self.cursos:
             cursoStr = f"{c.nome}, "
         return cursoStr[:-2]
 
-    def getEndereco(self):
-        return self.__endereco
-    
-    def setEndereco(self, endereco):
-        self.__endereco = endereco
+    def calcSalario(self):
+        salarioTotal = self.SALARIO_BASE * 4
+        return salarioTotal
 
     def __str__(self):
         return f"Nome: {self.nome}\nEmail: {self.email}\nDisciplias: {self.mostrarDisciplinas()}"

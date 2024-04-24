@@ -1,10 +1,11 @@
-class Aluno():
-    def __init__(self, nome, matricula, curso, endereco, email):
-        self.nome = nome
+from Pessoa import Pessoa
+
+
+class Aluno(Pessoa):
+    def __init__(self, nome, endereco, email, matricula, curso):
+        super().__init__(nome, endereco, email)
         self.__matricula = matricula
         self.curso = curso
-        self.__endereco = endereco
-        self.email = email
         self.disciplinas = []
 
     def matricular(self, disciplina):
@@ -21,15 +22,9 @@ class Aluno():
 
     def getMatricula(self):
         return self.__matricula
-    
+
     def setMatricula(self, matricula):
         self.__matricula = matricula
-
-    def getEndereco(self):
-        return self.__endereco
-    
-    def setEndereco(self, endereco):
-        self.__endereco = endereco
 
     def __str__(self):
         return f"Nome: {self.nome}\nMatricula: {self.__matricula}\nCurso: {self.curso}\nEmail: {self.email}\nDisciplinas: {self.mostrarDisciplinas()}"

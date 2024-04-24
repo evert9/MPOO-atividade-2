@@ -3,6 +3,7 @@ class Curso:
         self.nome = nome
         self.codigo = codigo
         self.duracao = duracao
+        self.coordenador = None
         self.disciplinas = []
         self.alunos = []
         self.professores = []
@@ -24,6 +25,12 @@ class Curso:
         for p in self.professores:
             professoresStr = f"{p}, "
         return professoresStr[:-2]
+    
+    def getCoordenador(self):
+        return self.coordenador
+    
+    def setCoordenador(self, coordenador):
+        self.coordenador = coordenador
         
     def __str__(self):
         return f"{self.nome} | Código: {self.codigo} | Duração: {self.duracao} periodos"
